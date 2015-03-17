@@ -1,6 +1,6 @@
 body {
-  color: white;
-  /*background: #0CBEFF url(../img/devoops_pattern_b10.png) 0 0 repeat;*/
+  color: black;
+  background: #FFF; //url(../img/devoops_pattern_b10.png) 0 0 repeat;
 }
 .body-expanded, .modal-open {
   overflow-y:hidden;
@@ -38,7 +38,7 @@ h1, .h1, h2, .h2, h3, .h3 {
 .navbar {
   margin: 0;
   border: 0;
-  position: fixed;
+  position: absolute;
   top:0;
   left: 0;
   width:100%;
