@@ -75,6 +75,7 @@
                         <li class="active"><a href="#">Noticias <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
+                        <li><a href="#">Agregar amigos</a></li>
                     </ul>
                 </div>
 
