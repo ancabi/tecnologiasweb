@@ -100,12 +100,12 @@
                             <tr>
                                 <td>Ariel</td>
                                 <td>Palomino</td>
-                                <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></td>
+                                <td><a href="AgregarAmigoServlet?id=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></a></td>
                             </tr>
                             <tr>
                                 <td>Pedro</td>
                                 <td>Antequera</td>
-                                <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></td>
+                                <td><a href="AgregarAmigoServlet?id=2"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></a></td>
                             </tr>
                         </table>
                     </section>
