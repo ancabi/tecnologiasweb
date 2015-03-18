@@ -41,11 +41,15 @@ public class AgregarAmigoServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             
-             if(request.getParameter("id") != null) {
-            Long id = null;
-            id = Long.valueOf(request.getParameter("id"));        
-            out.println("<h1>"+id+"</h1>");
-        }
+            if(request.getParameter("idUsuario") != null && request.getParameter("idAmigo") != null) {
+                int idUsuario;
+                int idAmigo;
+                idUsuario = Integer.valueOf(request.getParameter("idUsuario"));  
+                idAmigo = Integer.valueOf(request.getParameter("idAmigo"));
+                out.println("<h1>"+idUsuario+"</h1>");
+                out.println("<h1>"+idAmigo+"</h1>");
+                out.println("<h1>Insertar la invitacion de amigo</h1>");
+            }
             
             out.println("</body>");
             out.println("</html>");

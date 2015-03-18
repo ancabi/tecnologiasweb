@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+//Azules: oscuro-> #2263A0; claro-> #3391DB
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -12,6 +13,17 @@ html {
 }
 body {
   margin: 0;
+}
+.cantidad{
+    border: 2px;
+    border-color: #22FFA0;
+    background: #9A0101;
+    font-weight: bold;
+    float: right;
+    height: 20px;
+    width: 20px;
+    color: white;
+    text-align: center;
 }
 .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */
@@ -23,13 +35,24 @@ body {
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;
+  color: #9A0101;
+  text-decoration: none;
 }
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus {
+  color: #CF6A6B;
+  text-decoration: underline;
+}
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #2263A0;
+  background-color: #9A0101;
 }
+
+
+
 .sidebar {
   display: none;
   width: 100%;
@@ -3058,8 +3081,8 @@ fieldset[disabled] .btn {
 }
 .btn-default {
   color: #FFF;
-  background-color: #2263A0;
-  border-color: #2E85D6;
+  background-color: #CF6A6B;
+  border-color: #9A0101;
 }
 .btn-default:hover,
 .btn-default:focus,
@@ -3068,8 +3091,8 @@ fieldset[disabled] .btn {
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
   color: #FFF;
-  background-color: #2E85D6;
-  border-color: #2263A0;
+  background-color: #9A0101;
+  border-color: #CF6A6B;
 }
 .btn-default:active,
 .btn-default.active,
@@ -4206,7 +4229,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
 }
 .navbar-brand > img {
-  display: block;
+  width: 40px;
+  height: 40px;
+  margin-top: -10px;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
@@ -4416,7 +4441,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #379EFF;
+  background-color: #9A0101;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -4424,7 +4449,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
-  color: #2263A0;
+  color: #CF6A6B;
   background-color: transparent;
 }
 .navbar-default .navbar-text {
@@ -4435,14 +4460,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #2263A0;
+  color: #CF6A6B;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #FFF;
-  background-color: #2263A0;
+  background-color: #CF6A6B;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
