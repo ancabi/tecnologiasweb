@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Friendslife</title>
-
+        <link rel="icon" href="img/fl.png">
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet">
 
@@ -36,6 +36,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="img/fl.png">
+                    </a>
                     <a class="navbar-brand" href="#">Friendslife</a>
                 </div>
 
@@ -75,13 +78,33 @@
                         <li><a href="#">Noticias</a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
-                        <li class="active"><a href="#">Agregar amigos</a></li>
+                        <li class="active"><a href="#">Agregar amigos <div class="cantidad">2</div></a></li>
                     </ul>
                 </div>
 
                 <div class="container" role="main">
                     <section class='col-sm-8'>
-                        <h2>Agregar amigo</h2>
+                        <h2>Solicitudes pendientes</h2>
+
+                        <table class="table table-hover">
+
+                            <tr>
+                                <td>Ariel</td>
+                                <td>Palomino</td>
+                                <td style="width: 100px;"><a href="AgregarAmigoServlet?id=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
+                                <td><a href="AgregarAmigoServlet?id=1"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>                       
+                            </tr>
+                            <tr>
+                                <td>Pedro</td>
+                                <td>Antequera</td>
+                                <td style="width: 100px;"><a href="AgregarAmigoServlet?id=2"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
+                                <td><a href="AgregarAmigoServlet?id=2"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>
+                            </tr>
+                        </table>
+                    </section>
+                    
+                    <section class='col-sm-8'>
+                        <h2>Buscar amigo</h2>
 
                         <div class="row">
                             <br/>
