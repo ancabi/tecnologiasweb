@@ -31,20 +31,36 @@ public class CrearGrupoServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String nombre = request.getParameter("nombre");
+        String apellidos = request.getParameter("apellidos");
+        String edad = request.getParameter("edad");
+        String[] hobbies = request.getParameterValues("hobbies");
+
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
+        PrintWriter out = response.getWriter();
+        try {
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CrearGrupoServlet</title>");            
+            out.println("<title>Servlet que procesa un formulario b&aacute;sico</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CrearGrupoServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>" + "Crear grupo" + ":</h1>");
+            out.println("Nombre: ");
+
+            out.println("<ul>");
+            out.println("Usuarios:");
+            
+            out.println("<br/>");
+            
+            out.println(request.getQueryString());
+
             out.println("</body>");
             out.println("</html>");
+            
+        } finally { 
+            out.close();
         }
-    }
+    } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
