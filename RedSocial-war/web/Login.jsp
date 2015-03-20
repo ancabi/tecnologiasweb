@@ -1,3 +1,10 @@
+<%-- 
+    Document   : Login
+    Created on : 20-mar-2015, 11:26:13
+    Author     : Miguel
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
