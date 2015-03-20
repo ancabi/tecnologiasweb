@@ -86,9 +86,16 @@
                     <section class='col-sm-10'>
                         <h1>Red social</h1>
                         <form method="get" action="LoginServlet" name="datos">
-                            Correo electr&oacute;nico: <input name="correoLogin"><br/>
-                            Contraseña: <input name="contraseñaLogin"><br/>
-                            <input name="sesion" value="sesion" type="checkbox"/>No cerrar sesi&oacute;n<br/>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Correo electr&oacute;nico</span>
+                                <input type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
+                            </div>
+                            <!--Correo electr&oacute;nico: <input name="correoLogin"><br/>-->
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Contraseña</span>
+                                <input type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                            </div>
+                            <!--Contraseña: <input name="contraseñaLogin"><br/>-->
                             <input name="recordatorio" value="¿Has olvidado tu contraseña?" type="submit"/>
                             <button>Enviar</button><br/><br/><br/><br/><br/>
                         </form>
