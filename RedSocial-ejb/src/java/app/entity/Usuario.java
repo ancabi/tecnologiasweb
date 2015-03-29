@@ -71,6 +71,7 @@ public class Usuario implements Serializable {
     private String password;
     @Column(name = "ADMIN")
     private BigInteger admin;
+    
     @JoinTable(name = "USUARIOGRUPO", joinColumns = {
         @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDGRUPO", referencedColumnName = "ID")})
@@ -82,7 +83,7 @@ public class Usuario implements Serializable {
     @ManyToMany
     private List<Usuario> usuarioList;
     @ManyToMany(mappedBy = "usuarioList")
-    private List<Usuario> usuarioList1;
+    private List<Usuario> invitaciones;
     @JoinTable(name = "INVITACION", joinColumns = {
         @JoinColumn(name = "IDUSUARIO1", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDUSUARIO2", referencedColumnName = "ID")})
@@ -175,12 +176,12 @@ public class Usuario implements Serializable {
     }
 
     @XmlTransient
-    public List<Usuario> getUsuarioList1() {
-        return usuarioList1;
+    public List<Usuario> getInvitaciones() {
+        return invitaciones;
     }
 
-    public void setUsuarioList1(List<Usuario> usuarioList1) {
-        this.usuarioList1 = usuarioList1;
+    public void setUsuarioList1(List<Usuario> invitaciones) {
+        this.invitaciones = invitaciones;
     }
 
     @XmlTransient
@@ -232,7 +233,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "rrrrrr.ooooo.Usuario[ id=" + id + " ]";
+        return "app.entity.Usuario[ id=" + id + " ]";
     }
     
 }

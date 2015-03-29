@@ -4,6 +4,10 @@
     Author     : ancabi
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="app.entity.Usuario"%>
+<%@page import="app.ejb.UsuarioFacade" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +29,11 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+    
+    <%
+        Usuario u = (Usuario)session.getAttribute("usuario");
+        List<Usuario> invitaciones= u.getInvitaciones();
+    %>
     <body>
         <nav class="navbar navbar-default">
             <div class="container">
@@ -88,6 +97,14 @@
 
                         <table class="table table-hover">
 
+                            <%
+        
+                                for(Usuario user:invitaciones){
+                                    user.getId();
+                                }
+        
+                            %>
+                            
                             <tr>
                                 <td>Ariel</td>
                                 <td>Palomino</td>
