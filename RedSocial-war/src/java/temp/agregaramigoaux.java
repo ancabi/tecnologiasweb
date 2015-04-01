@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package modelo.servlet;
+package temp;
 
 import app.ejb.UsuarioFacade;
 import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
+import static java.lang.System.out;
 import java.math.BigInteger;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author ancabi
  */
-@WebServlet(name = "AgregarAmigoServlet", urlPatterns = {"/AgregarAmigoServlet"})
-public class AgregarAmigoServlet extends HttpServlet {
+@WebServlet(name = "agregaramigoaux", urlPatterns = {"/agregaramigoaux"})
+public class agregaramigoaux extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
@@ -45,26 +46,19 @@ public class AgregarAmigoServlet extends HttpServlet {
         //get session of the request
         HttpSession session = request.getSession();
         
-        Usuario u=(Usuario)session.getAttribute("usuario");
-        
-        int idUsuario=Integer.parseInt(request.getParameter("id"));
-        
-        int ok=Integer.parseInt(request.getParameter("ok"));
-        
-        if(ok==0){
-            
-            Usuario u2=uf.find(new BigDecimal(""+idUsuario));
+        List <Usuario> ul=uf.findAll();
 
-            uf.borrarInvitacion(u, u2);
-
-            
-        }else{
-            
-            Usuario u2=uf.find(new BigDecimal(""+idUsuario));
-
-            uf.aceptarInvitacion(u, u2);
-            
-        }
+        Usuario u=ul.get(1);
+        
+        session.setAttribute("usuario", u);
+        
+        request.setAttribute("invitaciones", u.getUsuarioList2());
+        
+        RequestDispatcher rd;
+        
+        rd=getServletContext().getRequestDispatcher("/agregaramigo.jsp");
+        rd.forward(request, response);
+        
         
     }
 

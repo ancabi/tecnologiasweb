@@ -77,20 +77,24 @@ public class Usuario implements Serializable {
         @JoinColumn(name = "IDGRUPO", referencedColumnName = "ID")})
     @ManyToMany
     private List<Grupo> grupoList;
+    
     @JoinTable(name = "AMIGOS", joinColumns = {
         @JoinColumn(name = "IDUSUARIO1", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDUSUARIO2", referencedColumnName = "ID")})
     @ManyToMany
     private List<Usuario> usuarioList;
     @ManyToMany(mappedBy = "usuarioList")
-    private List<Usuario> invitaciones;
+    private List<Usuario> usuarioList1;
+    
     @JoinTable(name = "INVITACION", joinColumns = {
         @JoinColumn(name = "IDUSUARIO1", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDUSUARIO2", referencedColumnName = "ID")})
     @ManyToMany
     private List<Usuario> usuarioList2;
+    
     @ManyToMany(mappedBy = "usuarioList2")
     private List<Usuario> usuarioList3;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")
     private List<Post> postList;
 
@@ -176,12 +180,12 @@ public class Usuario implements Serializable {
     }
 
     @XmlTransient
-    public List<Usuario> getInvitaciones() {
-        return invitaciones;
+    public List<Usuario> getUsuarioList1() {
+        return usuarioList1;
     }
 
-    public void setUsuarioList1(List<Usuario> invitaciones) {
-        this.invitaciones = invitaciones;
+    public void setUsuarioList1(List<Usuario> usuarioList1) {
+        this.usuarioList1 = usuarioList1;
     }
 
     @XmlTransient

@@ -10,6 +10,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+    <%
+        Usuario u = (Usuario) session.getAttribute("usuario");
+        //List<Usuario> invitaciones= u.getInvitaciones();
+        List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
+    %>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -30,10 +37,6 @@
         <![endif]-->
     </head>
     
-    <%
-        Usuario u = (Usuario)session.getAttribute("usuario");
-        List<Usuario> invitaciones= u.getInvitaciones();
-    %>
     <body>
         <nav class="navbar navbar-default">
             <div class="container">
@@ -96,27 +99,23 @@
                         <h2>Solicitudes pendientes</h2>
 
                         <table class="table table-hover">
-
                             <%
-        
-                                for(Usuario user:invitaciones){
-                                    user.getId();
-                                }
-        
+
+                                for(Usuario temp:invitaciones){
                             %>
                             
                             <tr>
-                                <td>Ariel</td>
-                                <td>Palomino</td>
-                                <td style="width: 100px;"><a href="AgregarAmigoServlet?id=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
-                                <td><a href="AgregarAmigoServlet?id=1"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>                       
+                                <td><%=temp.getNombre()%></td>
+                                <td><%=temp.getApellidos()%></td>
+                                <td style="width: 100px;"><a href="AgregarAmigoServlet?id=<%=temp.getId()%>&ok=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
+                                <td><a href="AgregarAmigoServlet?id=<%=temp.getId()%>&ok=0"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>                       
                             </tr>
-                            <tr>
-                                <td>Pedro</td>
-                                <td>Antequera</td>
-                                <td style="width: 100px;"><a href="AgregarAmigoServlet?id=2"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
-                                <td><a href="AgregarAmigoServlet?id=2"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>
-                            </tr>
+                            
+                            <%
+                                }
+                            %>
+                            
+                            
                         </table>
                     </section>
                     
