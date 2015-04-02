@@ -8,9 +8,7 @@ package modelo.servlet;
 import app.ejb.UsuarioFacade;
 import app.entity.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
-import java.util.ListIterator;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,8 +44,8 @@ public class BuscarAmigo extends HttpServlet {
         
         Usuario u=(Usuario) session.getAttribute("usuario");
         
-        List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
-        request.setAttribute("invitaciones", invitaciones);
+        /*List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
+        request.setAttribute("invitaciones", invitaciones);*/
         
         String buscar=request.getParameter("buscar");
 
@@ -55,8 +53,10 @@ public class BuscarAmigo extends HttpServlet {
 
         //Tengo que quitar los que ya son amigos
         List<Usuario> amigos=u.getUsuarioList();
+        List<Usuario> invitaciones=u.getUsuarioList3();
 
         usuarios.removeAll(amigos);
+        usuarios.removeAll(invitaciones);
         
         request.setAttribute("resBuscar", usuarios);
         

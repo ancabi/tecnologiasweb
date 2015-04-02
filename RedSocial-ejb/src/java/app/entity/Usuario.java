@@ -90,10 +90,10 @@ public class Usuario implements Serializable {
     @JoinTable(name = "INVITACION", joinColumns = {
         @JoinColumn(name = "IDUSUARIO1", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDUSUARIO2", referencedColumnName = "ID")})
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     private List<Usuario> usuarioList2;
     
-    @ManyToMany(mappedBy = "usuarioList2")
+    @ManyToMany(mappedBy = "usuarioList2", fetch=FetchType.EAGER)
     private List<Usuario> usuarioList3;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idusuario")

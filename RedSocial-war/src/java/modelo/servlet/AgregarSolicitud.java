@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package temp;
+package modelo.servlet;
 
 import app.ejb.UsuarioFacade;
 import app.entity.Usuario;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.math.BigDecimal;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,8 +23,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author ancabi
  */
-@WebServlet(name = "agregaramigoaux", urlPatterns = {"/agregaramigoaux"})
-public class agregaramigoaux extends HttpServlet {
+@WebServlet(name = "AgregarSolicitud", urlPatterns = {"/AgregarSolicitud"})
+public class AgregarSolicitud extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
@@ -39,17 +40,16 @@ public class agregaramigoaux extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         //get session of the request
         HttpSession session = request.getSession();
         
-        List <Usuario> ul=uf.findAll();
-
-        Usuario u=ul.get(3);
+        Usuario u=(Usuario) session.getAttribute("usuario");
         
-        session.setAttribute("usuario", u);
+        int id=Integer.parseInt(request.getParameter("id"));
         
-        session.setAttribute("invitaciones", u.getUsuarioList2());
+        Usuario u2=uf.find(new BigDecimal(""+id));
+        
+        uf.agregarInvitacion(u2,u);
         
         RequestDispatcher rd;
         

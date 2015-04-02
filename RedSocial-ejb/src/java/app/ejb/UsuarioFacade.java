@@ -6,13 +6,11 @@
 package app.ejb;
 
 import app.entity.Usuario;
-import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.criteria.Subquery;
 
 /**
  *
@@ -77,7 +75,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         Query q;
         List<Usuario> usuarios;        
         buscar=buscar.toUpperCase();
-        q = em.createQuery("SELECT u FROM Usuario u WHERE u.id != :idU AND UPPER(u.nombre) LIKE :buscar1 OR UPPER(u.apellidos) LIKE :buscar2");
+        q = em.createQuery("SELECT u FROM Usuario u WHERE u.id != :idU AND (UPPER(u.nombre) LIKE :buscar1 OR UPPER(u.apellidos) LIKE :buscar2)");
         buscar="%"+buscar+"%";
         q.setParameter("idU", id);
         q.setParameter("buscar1", buscar);
@@ -85,6 +83,23 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         usuarios = q.getResultList();
         
         return usuarios;
+    }
+
+    public void agregarInvitacion(Usuario u2, Usuario u) {
+        
+        //Agrego la invitacion al usuario
+        List<Usuario> invitaciones2=u2.getUsuarioList2();
+        invitaciones2.add(u);
+        u.setUsuarioList2(invitaciones2);
+        
+        //Agrego al usuario como invitador
+        List<Usuario> invitaciones=u.getUsuarioList3();
+        invitaciones.add(u2);
+        u.setUsuarioList3(invitaciones);
+        
+        //em.merge(u);
+        em.merge(u2);
+        
     }
         
 }

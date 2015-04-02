@@ -57,7 +57,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">Usuario </a></li>
+                        <li><a href="#">
+                                <%=u.getNombre()%> 
+                                <%=u.getApellidos()%>
+                            </a></li>
                         <li><a href="#">Muro</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -85,12 +88,17 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="#">Usuario</a></li></ul>
+                    <ul class='nav nav-sidebar'><li><a href="#">
+                                <%=u.getNombre()%>
+                                <%=u.getApellidos()%>
+                            </a></li></ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="#">Noticias</a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
-                        <li class="active"><a href="#">Agregar amigos <div class="cantidad">2</div></a></li>
+                        <li class="active"><a href="#">Agregar amigos <div class="cantidad">
+                                    <%if(u.getUsuarioList2().size()!=0)%>
+                                    <%=u.getUsuarioList2().size()%></div></a></li>
                     </ul>
                 </div>
 
