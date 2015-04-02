@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package temp;
+package modelo.servlet;
 
 import app.ejb.UsuarioFacade;
 import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.math.BigInteger;
 import java.util.List;
+import java.util.ListIterator;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,12 +24,11 @@ import javax.servlet.http.HttpSession;
  *
  * @author ancabi
  */
-@WebServlet(name = "agregaramigoaux", urlPatterns = {"/agregaramigoaux"})
-public class agregaramigoaux extends HttpServlet {
+@WebServlet(name = "BuscarAmigo", urlPatterns = {"/BuscarAmigo"})
+public class BuscarAmigo extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -46,20 +44,27 @@ public class agregaramigoaux extends HttpServlet {
         //get session of the request
         HttpSession session = request.getSession();
         
-        List <Usuario> ul=uf.findAll();
+        Usuario u=(Usuario) session.getAttribute("usuario");
+        
+        List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
+        request.setAttribute("invitaciones", invitaciones);
+        
+        String buscar=request.getParameter("buscar");
 
-        Usuario u=ul.get(1);
+        List<Usuario> usuarios=uf.buscarUsuario(buscar);
         
-        session.setAttribute("usuario", u);
+        //Tengo que quitar los que ya son amigos y al propio usuario
+        List<Usuario> amigos=u.getUsuarioList();
         
-        session.setAttribute("invitaciones", u.getUsuarioList2());
+        usuarios.removeAll(amigos);
+        usuarios.remove(u);
+        
+        request.setAttribute("resBuscar", usuarios);
         
         RequestDispatcher rd;
         
-        rd=getServletContext().getRequestDispatcher("/agregaramigo.jsp");
+        rd=this.getServletContext().getRequestDispatcher("/agregaramigo.jsp");
         rd.forward(request, response);
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

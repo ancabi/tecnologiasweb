@@ -13,8 +13,8 @@
 
     <%
         Usuario u = (Usuario) session.getAttribute("usuario");
-        //List<Usuario> invitaciones= u.getInvitaciones();
-        List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
+        List<Usuario> resBuscar= (List<Usuario>) request.getAttribute("resBuscar");
+        List<Usuario> invitaciones=(List<Usuario>) session.getAttribute("invitaciones");
     %>
 
 <html lang="en">
@@ -100,19 +100,20 @@
 
                         <table class="table table-hover">
                             <%
-
+                            if(invitaciones!=null){
                                 for(Usuario temp:invitaciones){
                             %>
                             
                             <tr>
                                 <td><%=temp.getNombre()%></td>
                                 <td><%=temp.getApellidos()%></td>
-                                <td style="width: 100px;"><a href="AgregarAmigoServlet?id=<%=temp.getId()%>&ok=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
-                                <td><a href="AgregarAmigoServlet?id=<%=temp.getId()%>&ok=0"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>                       
+                                <td style="width: 100px;"><a href="AgregarAmigo?id=<%=temp.getId()%>&ok=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
+                                <td><a href="AgregarAmigo?id=<%=temp.getId()%>&ok=0"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>                       
                             </tr>
                             
                             <%
                                 }
+                            }
                             %>
                             
                             
@@ -125,27 +126,35 @@
                         <div class="row">
                             <br/>
                             <div class="col-lg-6">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Nombre/Apellidos">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Buscar</button>
-                                    </span>
-                                </div><!-- /input-group -->
+                                <form action="BuscarAmigo" method="post">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="buscar" placeholder="Nombre/Apellido">
+                                        <span class="input-group-btn">
+                                    <input class="btn btn-primary" type="submit" value="Buscar">
+                                        </span>
+                                    </div>
+                                </form>
                             </div><!-- /.col-lg-6 -->
                         </div><!-- /.row -->
                         <br/><br/>
                         <table class="table table-hover">
+                            
+                            <%
+                                if(resBuscar!=null){ 
+                                    
+                                    for(Usuario b:resBuscar){
+                            %>
 
                             <tr>
-                                <td>Ariel</td>
-                                <td>Palomino</td>
-                                <td><a href="AgregarAmigoServlet?id=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></a></td>
+                                <td><%=b.getNombre()%></td>
+                                <td><%=b.getApellidos()%></td>
+                                <td><a href="AgregarSolicitud?id=<%=b.getId()%>"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></a></td>
                             </tr>
-                            <tr>
-                                <td>Pedro</td>
-                                <td>Antequera</td>
-                                <td><a href="AgregarAmigoServlet?id=2"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Enviar solicitud</button></a></td>
-                            </tr>
+                            <%
+                                    }
+                                }
+                            %>
+                            
                         </table>
                     </section>
                 </div>

@@ -6,7 +6,7 @@
             <name>RedSocial-ejb</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <source-roots>
-                <root id="src.java.dir"/>
+                <root id="src.java.dir" name="Source Code"/>
             </source-roots>
             <test-roots>
                 <root id="test.src.dir"/>

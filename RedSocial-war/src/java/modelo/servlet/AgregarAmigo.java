@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +25,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author ancabi
  */
-@WebServlet(name = "AgregarAmigoServlet", urlPatterns = {"/AgregarAmigoServlet"})
-public class AgregarAmigoServlet extends HttpServlet {
+@WebServlet(name = "AgregarAmigo", urlPatterns = {"/AgregarAmigo"})
+public class AgregarAmigo extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
@@ -66,6 +67,10 @@ public class AgregarAmigoServlet extends HttpServlet {
             
         }
         
+        RequestDispatcher rd;
+        
+        rd=this.getServletContext().getRequestDispatcher("/agregaramigo.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

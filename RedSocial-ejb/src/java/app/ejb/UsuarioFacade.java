@@ -71,5 +71,20 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         borrarInvitacion(u, u2);
         
     }
+
+    public List<Usuario> buscarUsuario(String buscar) {
+        Query q;
+        List<Usuario> usuarios;        
+        buscar=buscar.toUpperCase();
+        //q = em.createQuery("SELECT u FROM Usuario u WHERE UPPER(u.nombre) LIKE '%A%' OR UPPER(u.apellidos) LIKE '%A%' AND u.id <> 2 AND u.id NOT IN (SELECT u.usuarioList.IDUSUARIO2 FROM Usuario u WHERE u.usuarioList.IDUSUARIO1=2)");
+        //q.setParameter(1, buscar);
+        //q.setParameter(2, buscar);
+        q = em.createQuery("SELECT u FROM Usuario u WHERE UPPER(u.nombre) LIKE ?1 OR UPPER(u.apellidos) LIKE ?2");
+        q.setParameter(1, buscar);
+        q.setParameter(2, buscar);
+        usuarios = q.getResultList();
+        
+        return usuarios;
+    }
         
 }
