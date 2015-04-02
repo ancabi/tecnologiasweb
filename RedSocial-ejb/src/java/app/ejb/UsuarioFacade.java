@@ -12,6 +12,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.criteria.Subquery;
 
 /**
  *
@@ -72,16 +73,15 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         
     }
 
-    public List<Usuario> buscarUsuario(String buscar) {
+    public List<Usuario> buscarUsuario(String buscar, int id) {
         Query q;
         List<Usuario> usuarios;        
         buscar=buscar.toUpperCase();
-        //q = em.createQuery("SELECT u FROM Usuario u WHERE UPPER(u.nombre) LIKE '%A%' OR UPPER(u.apellidos) LIKE '%A%' AND u.id <> 2 AND u.id NOT IN (SELECT u.usuarioList.IDUSUARIO2 FROM Usuario u WHERE u.usuarioList.IDUSUARIO1=2)");
-        //q.setParameter(1, buscar);
-        //q.setParameter(2, buscar);
-        q = em.createQuery("SELECT u FROM Usuario u WHERE UPPER(u.nombre) LIKE ?1 OR UPPER(u.apellidos) LIKE ?2");
-        q.setParameter(1, buscar);
-        q.setParameter(2, buscar);
+        q = em.createQuery("SELECT u FROM Usuario u WHERE u.id != :idU AND UPPER(u.nombre) LIKE :buscar1 OR UPPER(u.apellidos) LIKE :buscar2");
+        buscar="%"+buscar+"%";
+        q.setParameter("idU", id);
+        q.setParameter("buscar1", buscar);
+        q.setParameter("buscar2", buscar);
         usuarios = q.getResultList();
         
         return usuarios;

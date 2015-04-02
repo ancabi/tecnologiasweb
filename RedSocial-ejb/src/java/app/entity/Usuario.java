@@ -13,6 +13,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -81,7 +82,7 @@ public class Usuario implements Serializable {
     @JoinTable(name = "AMIGOS", joinColumns = {
         @JoinColumn(name = "IDUSUARIO1", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDUSUARIO2", referencedColumnName = "ID")})
-    @ManyToMany
+    @ManyToMany( fetch=FetchType.EAGER )
     private List<Usuario> usuarioList;
     @ManyToMany(mappedBy = "usuarioList")
     private List<Usuario> usuarioList1;

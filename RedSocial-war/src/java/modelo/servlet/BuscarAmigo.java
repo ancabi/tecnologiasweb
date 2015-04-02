@@ -51,13 +51,12 @@ public class BuscarAmigo extends HttpServlet {
         
         String buscar=request.getParameter("buscar");
 
-        List<Usuario> usuarios=uf.buscarUsuario(buscar);
-        
-        //Tengo que quitar los que ya son amigos y al propio usuario
+        List<Usuario> usuarios=uf.buscarUsuario(buscar, u.getId().intValue());
+
+        //Tengo que quitar los que ya son amigos
         List<Usuario> amigos=u.getUsuarioList();
-        
+
         usuarios.removeAll(amigos);
-        usuarios.remove(u);
         
         request.setAttribute("resBuscar", usuarios);
         
