@@ -6,6 +6,9 @@
 package app.ejb;
 
 import app.entity.Post;
+import app.entity.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,6 +29,21 @@ public class PostFacade extends AbstractFacade<Post> {
 
     public PostFacade() {
         super(Post.class);
+    }
+    
+    
+    public List<Post> listaPostPersonal (Usuario u){
+        List<Post> post = u.getPostList();
+        return post;
+    }
+    
+    public List<Post> listaPostMuro (Usuario u){
+        List<Usuario> amigos = u.getUsuarioList();
+        List<Post> post = new ArrayList<Post>();
+        for(Usuario user: amigos){
+            post.addAll(user.getPostList());
+        }      
+        return post;
     }
     
 }
