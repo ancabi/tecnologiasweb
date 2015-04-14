@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author ancabi
  */
-@WebServlet(name = "MuroAux", urlPatterns = {"/MuroAux"})
+@WebServlet(name = "MuroAux", urlPatterns = {"/Muro"})
 public class MuroAux extends HttpServlet {
 
     @EJB

@@ -13,11 +13,6 @@
 <%
     Usuario u = (Usuario) session.getAttribute("usuario");
     List<Post> post = (List<Post>) session.getAttribute("Post");
-
-    System.out.println(post.size());
-    for (Post p : post) {
-        System.out.println(p.getTexto());
-    }
 %>
 
 <html lang="en">
@@ -63,7 +58,7 @@
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li>
-                        <li class="active"><a href="#">Muro</a></li>
+                        <li ><a href="#">Muro</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -90,15 +85,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="/RedSocial-war/MuroAux">
+                    <ul class='nav nav-sidebar'>
+                        <li class="active"><a href="/RedSocial-war/MuroAux">
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Noticias <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Noticias <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
-                        <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">2</div></a></li>
+                        <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">
+                                <%if(u.getUsuarioList2().size()!=0)%>
+                                    <%=u.getUsuarioList2().size()%>
+                                </div></a></li>
                     </ul>
                 </div>
 
@@ -132,7 +131,6 @@
                                         <span class=" glyphicon glyphicon-envelope"/>
                                     </button>
                                 </div>
-
                             </div>
                             <%
                                 }

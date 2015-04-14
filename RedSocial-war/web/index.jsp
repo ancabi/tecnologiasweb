@@ -4,6 +4,9 @@
     Author     : ancabi
 --%>
 
+<%@page import="app.entity.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="app.entity.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +48,10 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li ><a href="#">Usuario </a></li>
+                        <li ><a href="#">
+                            <%= u.getNombre()%>
+                            <%= u.getApellidos()%>
+                            </a></li>
                         <li class="active"><a href="#">Muro</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
