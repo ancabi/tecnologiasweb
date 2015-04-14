@@ -10,7 +10,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+<%
+    Usuario u = (Usuario) session.getAttribute("usuario");
+    List<Post> post = (List<Post>) session.getAttribute("Post");
 
+    System.out.println(post.size());
+    for (Post p : post) {
+        System.out.println(p.getTexto());
+    }
+%>
 
 <html lang="en">
     <head>
@@ -52,7 +60,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li ><a href="#">
-                            
+                                <%=u.getNombre()%> 
+                                <%=u.getApellidos()%>
                             </a></li>
                         <li class="active"><a href="#">Muro</a></li>
                         <li class="dropdown">
@@ -81,19 +90,54 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="#">Usuario</a></li></ul>
+                    <ul class='nav nav-sidebar'><li><a href="/RedSocial-war/MuroAux">
+                                <%=u.getNombre()%> 
+                                <%=u.getApellidos()%>
+                            </a></li></ul>
                     <ul class="nav nav-sidebar">
                         <li class="active"><a href="#">Noticias <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
-                        <li><a href="#">Agregar amigos<div class="cantidad">2</div></a></li>
+                        <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">2</div></a></li>
                     </ul>
                 </div>
 
                 <div class="container" role="main">
                     <section class='col-sm-10'>
                         <!--Cuerpo de la página -->
-                        
+                        <%for (Post p : post) {%>
+                        <p>   </p>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <%= u.getNombre()%>
+                                    <%= u.getApellidos()%>
+                                </h3>
+                            </div>
+                            <div class="panel-body">
+                                <%= p.getTexto()%>
+                            </div>
+                            <div class="panel-body" >
+                                <div class="btn-group btn-group-sm " role="group" aria-label="...">
+                                    <button type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-thumbs-up"/>
+                                    </button>
+                                    <button type="button" class="btn btn-default">
+                                        <span class=" glyphicon glyphicon-thumbs-down"/>
+                                    </button>
+                                    <button type="button" class="btn btn-default">
+                                        <span class=" glyphicon glyphicon-pencil"/>
+                                    </button>
+                                    <button type="button" class="btn btn-default">
+                                        <span class=" glyphicon glyphicon-envelope"/>
+                                    </button>
+                                </div>
+
+                            </div>
+                            <%
+                                }
+                            %>
+
                     </section>
                 </div>
                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

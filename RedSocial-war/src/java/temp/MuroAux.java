@@ -6,6 +6,7 @@
 package temp;
 
 import app.ejb.UsuarioFacade;
+import app.entity.Post;
 import app.entity.Usuario;
 import java.io.IOException;
 import java.util.List;
@@ -45,14 +46,15 @@ public class MuroAux extends HttpServlet {
         
         List <Usuario> ul=uf.findAll();
 
-        Usuario u=ul.get(3);
+        Usuario u = ul.get(3);
+        List<Post> listaPost = u.getPostList();
         
         session.setAttribute("usuario", u);
-        
+        session.setAttribute("Post", listaPost);
         
         RequestDispatcher rd;
         
-        rd=getServletContext().getRequestDispatcher("/MuroServlet.jsp");
+        rd=getServletContext().getRequestDispatcher("/Muro.jsp");
         rd.forward(request, response);   
         
     }

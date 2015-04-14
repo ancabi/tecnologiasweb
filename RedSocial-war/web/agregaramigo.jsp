@@ -88,7 +88,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="#">
+                    <ul class='nav nav-sidebar'><li><a href="/RedSocial-war/MuroAux">
                                 <%=u.getNombre()%>
                                 <%=u.getApellidos()%>
                             </a></li></ul>
