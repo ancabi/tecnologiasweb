@@ -46,7 +46,7 @@ public class MuroAux extends HttpServlet {
         
         List <Usuario> ul=uf.findAll();
 
-        Usuario u = ul.get(3);
+        Usuario u=ul.get(3);
         List<Post> listaPost = u.getPostList();
         
         session.setAttribute("usuario", u);
