@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author ancabi
  */
-@WebServlet(name = "MuroAux", urlPatterns = {"/Muro"})
+@WebServlet(name = "MuroAux", urlPatterns = {"/Perfil"})
 public class MuroAux extends HttpServlet {
 
     @EJB
@@ -54,7 +54,7 @@ public class MuroAux extends HttpServlet {
         
         RequestDispatcher rd;
         
-        rd=getServletContext().getRequestDispatcher("/Muro.jsp");
+        rd=getServletContext().getRequestDispatcher("/Perfil.jsp");
         rd.forward(request, response);   
         
     }
