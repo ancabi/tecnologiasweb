@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Perfil
-    Created on : 10-abr-2015, 11:23:38
+    Document   : Muro
+    Created on : 22-abr-2015, 18:12:39
     Author     : Adolfo
 --%>
 
@@ -12,7 +12,7 @@
 
 <%
     Usuario u = (Usuario) session.getAttribute("usuario");
-    List<Post> post = (List<Post>) session.getAttribute("Post");
+    List<Usuario> amigos = (List<Usuario>) session.getAttribute("amigos");
 %>
 
 <html lang="en">
@@ -74,16 +74,16 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class='nav nav-sidebar'>
-                        <li class="active"><a href="/RedSocial-war/Perfil">
+                        <li ><a href="/RedSocial-war/Perfil">
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="/RedSocial-war/Muro">Noticias </a></li>
+                        <li class="active"><a href="/RedSocial-war/Muro">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
                         <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">
-                                <%if(u.getUsuarioList2().size()!=0)%>
+                                    <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>
                                 </div></a></li>
                     </ul>
@@ -92,33 +92,35 @@
                 <div class="container" role="main">
                     <section class='col-sm-10'>
                         <!--Cuerpo de la página -->
-                        <%for (Post p : post) {%>
+                        <%for (Usuario user : amigos) {%>
+                        <% List<Post> post = user.getPostList();%>
+                        <% for (Post p : post) {%>
                         <p>   </p>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title">
-                                    <%= u.getNombre()%>
-                                    <%= u.getApellidos()%>
+                                    <%= user.getNombre()%>
+                                    <%= user.getApellidos()%>
                                 </h3>
                             </div>
                             <div class="panel-body">
                                 <%= p.getTexto()%>
                             </div>
-                            <div class="panel-body " >
-                                <div class="btn-group btn-group-sm " role="group" aria-label="...">
-                                    
-                                    <button type="button" class="btn btn-default">
-                                        <span class=" glyphicon glyphicon-pencil"/>
+                            <div class="panel-body" >
+                                <div class="btn-group btn-group-sm pull-right" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-default ">
+                                        <span class=" glyphicon glyphicon-pencil "/>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                            <%
+                        <%
                                 }
-                            %>
+                            }
+                        %>
                     </section>     
                 </div>
-                
+
                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
                 <!-- Include all compiled plugins (below), or include individual files as needed -->

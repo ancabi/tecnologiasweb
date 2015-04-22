@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package modelo.servlet;
 
-import app.ejb.PostFacade;
-import app.entity.Post;
+import app.ejb.UsuarioFacade;
 import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,7 +28,7 @@ import javax.servlet.http.HttpSession;
 public class MuroServlet extends HttpServlet {
 
     @EJB
-    PostFacade pf;
+    private UsuarioFacade uf;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,18 +42,24 @@ public class MuroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession sesion = request.getSession();
-        Usuario user = (Usuario) sesion.getAttribute("usuario");
-        List<Post> post = pf.listaPostPersonal(user);
+        /* TODO output your page here. You may use following sample code. */
+        HttpSession session = request.getSession();
+
+        Usuario user = (Usuario) session.getAttribute("usuario");
         
-        request.setAttribute("post", post);
+        List<Usuario> amigos = user.getUsuarioList();
+        amigos.addAll(user.getUsuarioList1());
+
+        session.setAttribute("usuario", user);
+        session.setAttribute("amigos", amigos);
 
         RequestDispatcher rd;
 
-        rd = this.getServletContext().getRequestDispatcher("/Muro.jsp");
+        rd = getServletContext().getRequestDispatcher("/Muro.jsp");
         rd.forward(request, response);
-    }
-
+    
+}
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
