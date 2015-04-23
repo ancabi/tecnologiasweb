@@ -84,36 +84,64 @@
 
                 <div class="container" role="main">
                     <section class='col-sm-10'>
-                        <h1>Red social</h1>
+                        <h1>Friendslife</h1>
                         <form method="get" action="LoginServlet" name="datos">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">Correo electr&oacute;nico</span>
                                 <input type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
                             </div>
-                            <!--Correo electr&oacute;nico: <input name="correoLogin"><br/>-->
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">Contraseña</span>
                                 <input type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
                             </div>
-                            <!--Contraseña: <input name="contraseñaLogin"><br/>-->
-                            <input name="recordatorio" value="¿Has olvidado tu contraseña?" type="submit"/>
-                            <button>Enviar</button><br/><br/><br/><br/><br/>
+                            <!--<div class="btn-toolbar" role="toolbar" aria-label="...">
+                                <button type="button" class="btn btn-default">¿Has olvidado tu contraseña?</button>
+                                <button type="button" class="btn btn-default">Entrar</button>
+                            </div>-->
+                            <button type="button" class="btn btn-default navbar-btn">¿Has olvidado tu contraseña?</button>
+                            <button type="button" class="btn btn-default navbar-btn">Entrar</button>
                         </form>
 
                         <h1>Reg&iacute;strate</h1>
                         <form method="get" action="LoginServlet" name="datos">
-                            Nombre: <input name="nombre"><br/>
-                            Apellidos: <input name="apellidos"><br/>
-                            Correo electr&oacute;nico: <input name="correoRegistro"><br/>
-                            Contraseña: <input name="contraseñaRegistro"><br/>
-                            Fecha de nacimiento: <input name="dia" maxlength="2" size="1"> <input name="mes" maxlength="2" size="1"> <input name="año" maxlength="4" size="3"><br/>
-                            Sexo:
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                                <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Apellidos</span>
+                                <input type="text" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Correo electr&oacute;nico</span>
+                                <input type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Contraseña</span>
+                                <input type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                            </div>
+                            
+                            <!--Fecha de nacimiento: <input name="dia" maxlength="2" size="1"> <input name="mes" maxlength="2" size="1"> <input name="año" maxlength="4" size="3"><br/>-->
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Fecha de nacimiento</span>
+                                <input type="text" class="form-control" placeholder="D&iacute;a" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Mes" aria-describedby="basic-addon1">
+                                <input type="text" class="form-control" placeholder="Año" aria-describedby="basic-addon1">
+                            </div>
+
+<!--                            Sexo:
                             <select name="sexo">
                                 <option>Hombre</option>
                                 <option>Mujer</option>
-                            </select>
+                            </select>-->
+                            
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Sexo</span>
+                                <input type="text" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
+                            </div>
                             <br/>
-                            <button>Quiero registrarme</button>
+                            <button type="button" class="btn btn-default navbar-btn">Quiero registrarme</button>
                         </form>
                     </section>
                 </div>
