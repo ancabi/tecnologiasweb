@@ -51,30 +51,28 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-        <div class="container" role="main">
-            <section class='col-sm-10'>
+        <div class="container " role="main">
+            <section class="col-sm-10">
                 <h1>Friendslife</h1>
-                <form method="get" action="LoginServlet" name="datos">
-                    <div class="input-group">
+                <form method="get" action="LoginServlet" name="login" class="col-sm-10">
+                    <div class="input-group ">
                         <span class="input-group-addon" id="basic-addon1">Correo electr&oacute;nico</span>
-                        <input type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
+                        <input name="email" type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Contraseña</span>
-                        <input type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                        <input name="contra"type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1" >
                     </div>
-                    <!--<div class="btn-toolbar" role="toolbar" aria-label="...">
-                        <button type="button" class="btn btn-default">¿Has olvidado tu contraseña?</button>
-                        <button type="button" class="btn btn-default">Entrar</button>
-                    </div>-->
-                    <button type="button" class="btn btn-default navbar-btn">¿Has olvidado tu contraseña?</button>
-                    <button type="button" class="btn btn-default navbar-btn">Entrar</button>
+                    <button type="submit" value="Entrar" class="btn btn-default navbar-btn">Entrar</button>
+                    <button type="button" href="/RedSocial-war/Perfil"class="btn btn-default navbar-btn">¿Has olvidado tu contraseña?</button>
+                    <p></p>
+                    <p></p>
                 </form>
 
                 <h1>Reg&iacute;strate</h1>
-                <form method="get" action="LoginServlet" name="datos">
+                <form method="get" action="CreateServlet" name="registro" class="col-sm-10">
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Nombre</span>
+                        <span class="input-group-addon "  id="basic-addon1">Nombre</span>
                         <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
@@ -98,19 +96,11 @@
                         <input type="text" class="form-control" placeholder="Mes" aria-describedby="basic-addon1">
                         <input type="text" class="form-control" placeholder="Año" aria-describedby="basic-addon1">
                     </div>
-
-                    <!--                            Sexo:
-                                                <select name="sexo">
-                                                    <option>Hombre</option>
-                                                    <option>Mujer</option>
-                                                </select>-->
-
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Sexo</span>
                         <input type="text" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
                     </div>
-                    <br/>
-                    <button type="button" class="btn btn-default navbar-btn">Quiero registrarme</button>
+                    <button type="submit" class="btn btn-default navbar-btn">Quiero registrarme</button>
                 </form>
             </section>
         </div>
