@@ -56,12 +56,12 @@
                 <h1>Friendslife</h1>
                 <form method="get" action="LoginServlet" name="login" class="col-sm-10">
                     <div class="input-group ">
-                        <span class="input-group-addon" id="basic-addon1">Correo electr&oacute;nico</span>
-                        <input name="email" type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon1">Usuario</span>
+                        <input name="usuarioL" type="text" class="form-control" placeholder="Usuario" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Contraseña</span>
-                        <input name="contra"type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1" >
+                        <input name="passL" type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1" >
                     </div>
                     <button type="submit" value="Entrar" class="btn btn-default navbar-btn">Entrar</button>
                     <button type="button" href="/RedSocial-war/Perfil"class="btn btn-default navbar-btn">¿Has olvidado tu contraseña?</button>
@@ -80,12 +80,12 @@
                         <input type="text" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Correo electr&oacute;nico</span>
-                        <input type="text" class="form-control" placeholder="Correo electr&oacute;nico" aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon1">Usuario</span>
+                        <input name="usuarioR" type="text" class="form-control" placeholder="Usuario" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Contraseña</span>
-                        <input type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
+                        <input name="passR" type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
                     </div>
 
                     <!--Fecha de nacimiento: <input name="dia" maxlength="2" size="1"> <input name="mes" maxlength="2" size="1"> <input name="año" maxlength="4" size="3"><br/>-->

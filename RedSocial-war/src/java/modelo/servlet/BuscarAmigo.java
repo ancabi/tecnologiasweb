@@ -27,6 +27,7 @@ public class BuscarAmigo extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -38,31 +39,30 @@ public class BuscarAmigo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //get session of the request
         HttpSession session = request.getSession();
-        
-        Usuario u=(Usuario) session.getAttribute("usuario");
-        
-        /*List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
-        request.setAttribute("invitaciones", invitaciones);*/
-        
-        String buscar=request.getParameter("buscar");
 
-        List<Usuario> usuarios=uf.buscarUsuario(buscar, u.getId().intValue());
+        Usuario u = (Usuario) session.getAttribute("usuario");
+
+        /*List<Usuario> invitaciones=(List<Usuario>) request.getAttribute("invitaciones");
+         request.setAttribute("invitaciones", invitaciones);*/
+        String buscar = request.getParameter("buscar");
+
+        List<Usuario> usuarios = uf.buscarUsuario(buscar, u.getId().intValue());
 
         //Tengo que quitar los que ya son amigos
-        List<Usuario> amigos=u.getUsuarioList();
-        List<Usuario> invitaciones=u.getUsuarioList3();
+        List<Usuario> amigos = u.getUsuarioList();
+        List<Usuario> invitaciones = u.getUsuarioList3();
 
         usuarios.removeAll(amigos);
         usuarios.removeAll(invitaciones);
-        
+
         request.setAttribute("resBuscar", usuarios);
-        
+
         RequestDispatcher rd;
-        
-        rd=this.getServletContext().getRequestDispatcher("/agregaramigo.jsp");
+
+        rd = this.getServletContext().getRequestDispatcher("/agregaramigo.jsp");
         rd.forward(request, response);
     }
 
