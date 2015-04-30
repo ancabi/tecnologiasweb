@@ -1,7 +1,6 @@
 package modelo.servlet;
 
 import app.ejb.UsuarioFacade;
-import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -38,15 +37,16 @@ public class LoginServlet extends HttpServlet {
             if (registrado) {
                 response.sendRedirect("Muro.jsp");
             } else {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Error: usuario no registrado</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>Usuario no registrado" + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
+//                out.println("<!DOCTYPE html>");
+//                out.println("<html>");
+//                out.println("<head>");
+//                out.println("<title>Error: usuario no registrado</title>");
+//                out.println("</head>");
+//                out.println("<body>");
+//                out.println("<h1>Usuario no registrado" + "</h1>");
+//                out.println("</body>");
+//                out.println("</html>");
+                response.sendRedirect("Login.jsp");
             }
         }
     }

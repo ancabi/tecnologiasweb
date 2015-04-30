@@ -90,16 +90,14 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         Query q;
         usuario = usuario.toUpperCase();
         pass = pass.toUpperCase(); // ¿?
-        q = em.createQuery("SELECT u FROM Usuario u WHERE (UPPER(u.usuario) = usuario) AND (UPPER(u.password) = pass)");
-        if (q != null) {
+        q = em.createQuery("SELECT u FROM Usuario u WHERE (UPPER(u.usuario) = :usuario) AND (UPPER(u.password) = :pass)");
+        q.setParameter("usuario", usuario);
+        q.setParameter("pass", pass);
+        List lista = q.getResultList();
+        if (!lista.isEmpty()) {
             res = true;
         }
         return res;
-    }
-
-    public void crearUsuario(String nombre, String apellidos, String usuario, String password) {
-        // ID
-        Query q = em.createQuery("INSERT INTO Usuario VALUES(7," + nombre + "," + apellidos + "," + usuario + "," + password + ",0)");
     }
 
     public void agregarInvitacion(Usuario u2, Usuario u) {

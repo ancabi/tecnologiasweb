@@ -6,8 +6,10 @@
 package modelo.servlet;
 
 import app.ejb.UsuarioFacade;
+import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,13 +41,13 @@ public class CreateServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            BigDecimal id = new BigDecimal(7);
             String nombre = request.getParameter("nombreR");
             String apellidos = request.getParameter("apellidosR");
             String usuario = request.getParameter("usuarioR");
             String pass = request.getParameter("passR");
-            
-            uf.crearUsuario(nombre, apellidos, usuario, pass);
+            Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
+            uf.create(u);
             response.sendRedirect("Muro.jsp");
         }
     }
