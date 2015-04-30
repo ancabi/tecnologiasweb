@@ -1,6 +1,7 @@
 package modelo.servlet;
 
 import app.ejb.UsuarioFacade;
+import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -33,10 +34,11 @@ public class LoginServlet extends HttpServlet {
             String usuario = request.getParameter("usuarioL");
             String pass = request.getParameter("passL");
 
-            boolean registrado = uf.usuarioRegistrado(usuario, pass);
-            if (registrado) {
+            Usuario registrado = uf.usuarioRegistrado(usuario, pass);
+
+            if (registrado != null) {
                 response.sendRedirect("Muro.jsp");
-                session.setAttribute("usuario", usuario);
+                session.setAttribute("usuario", registrado);
             } else {
                 response.sendRedirect("Login.jsp");
             }

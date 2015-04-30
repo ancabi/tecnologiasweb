@@ -85,8 +85,8 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         return usuarios;
     }
 
-    public boolean usuarioRegistrado(String usuario, String pass) {
-        boolean res = false;
+    public Usuario usuarioRegistrado(String usuario, String pass) {
+        Usuario res = null;
         Query q;
         q = em.createNamedQuery("Usuario.findByUsuario");
         q.setParameter("usuario", usuario);
@@ -94,7 +94,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         if (!lista.isEmpty()) {
             Usuario u = (Usuario) lista.get(0);
             if (pass.equalsIgnoreCase(u.getPassword())) {
-                res = true;
+                res = u;
             }
         }
         return res;
