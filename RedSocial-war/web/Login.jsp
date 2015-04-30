@@ -65,19 +65,18 @@
                     </div>
                     <button type="submit" value="Entrar" class="btn btn-default navbar-btn">Entrar</button>
                     <button type="button" href="/RedSocial-war/Perfil"class="btn btn-default navbar-btn">¿Has olvidado tu contraseña?</button>
-                    <p></p>
-                    <p></p>
+                    <p></p><p></p>
                 </form>
 
                 <h1>Reg&iacute;strate</h1>
                 <form method="get" action="CreateServlet" name="registro" class="col-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon "  id="basic-addon1">Nombre</span>
-                        <input type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
+                        <input name="nombreR" type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Apellidos</span>
-                        <input type="text" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon1">
+                        <input name="apellidosR" type="text" class="form-control" placeholder="Apellidos" aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1">Usuario</span>
@@ -88,18 +87,16 @@
                         <input name="passR" type="text" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1">
                     </div>
 
-                    <!--Fecha de nacimiento: <input name="dia" maxlength="2" size="1"> <input name="mes" maxlength="2" size="1"> <input name="año" maxlength="4" size="3"><br/>-->
-
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Fecha de nacimiento</span>
-                        <input type="text" class="form-control" placeholder="D&iacute;a" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control" placeholder="Mes" aria-describedby="basic-addon1">
-                        <input type="text" class="form-control" placeholder="Año" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1">Sexo</span>
-                        <input type="text" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
-                    </div>
+                    <!--                    <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">Fecha de nacimiento</span>
+                                            <input type="text" class="form-control" placeholder="D&iacute;a" aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" placeholder="Mes" aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" placeholder="Año" aria-describedby="basic-addon1">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="basic-addon1">Sexo</span>
+                                            <input type="text" class="form-control" placeholder="Sexo" aria-describedby="basic-addon1">
+                                        </div>-->
                     <button type="submit" class="btn btn-default navbar-btn">Quiero registrarme</button>
                 </form>
             </section>

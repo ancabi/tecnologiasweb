@@ -49,8 +49,6 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li ><a href="#">
-                            <%= u.getNombre()%>
-                            <%= u.getApellidos()%>
                             </a></li>
                         <li class="active"><a href="#">Muro</a></li>
                         <li class="dropdown">

@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author Miguel
+ */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
@@ -25,36 +29,25 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            HttpSession session = request.getSession();
+//            HttpSession session = request.getSession();
 
             String usuario = request.getParameter("usuarioL");
             String pass = request.getParameter("passL");
 
             boolean registrado = uf.usuarioRegistrado(usuario, pass);
             if (registrado) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Prueba</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>" + usuario + ": " + pass + "</h1>");
-                out.println("</body>");
-                out.println("</html>");
+                response.sendRedirect("Muro.jsp");
             } else {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Prueba</title>");
+                out.println("<title>Error: usuario no registrado</title>");
                 out.println("</head>");
                 out.println("<body>");
-                out.println("<h1>Usuario no encontrado" + "</h1>");
+                out.println("<h1>Usuario no registrado" + "</h1>");
                 out.println("</body>");
                 out.println("</html>");
             }
-
-//            Usuario user = (Usuario) session.getAttribute("usuario");
-//            List<Usuario> amigos = user.getUsuarioList();
         }
     }
 

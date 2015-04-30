@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo.servlet;
 
+import app.ejb.UsuarioFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,10 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Adolfo
+ * @author Miguel
  */
 @WebServlet(name = "CreateServlet", urlPatterns = {"/CreateServlet"})
 public class CreateServlet extends HttpServlet {
+
+    @EJB
+    private UsuarioFacade uf;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,15 +39,14 @@ public class CreateServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CreateServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CreateServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            String nombre = request.getParameter("nombreR");
+            String apellidos = request.getParameter("apellidosR");
+            String usuario = request.getParameter("usuarioR");
+            String pass = request.getParameter("passR");
+            
+            uf.crearUsuario(nombre, apellidos, usuario, pass);
+            response.sendRedirect("Muro.jsp");
         }
     }
 

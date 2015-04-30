@@ -97,6 +97,11 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         return res;
     }
 
+    public void crearUsuario(String nombre, String apellidos, String usuario, String password) {
+        // ID
+        Query q = em.createQuery("INSERT INTO Usuario VALUES(7," + nombre + "," + apellidos + "," + usuario + "," + password + ",0)");
+    }
+
     public void agregarInvitacion(Usuario u2, Usuario u) {
 
         //Agrego la invitacion al usuario
