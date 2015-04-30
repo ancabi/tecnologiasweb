@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -48,7 +49,7 @@ public class CreateServlet extends HttpServlet {
             String pass = request.getParameter("passR");
             Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
             uf.create(u);
-            response.sendRedirect("Muro.jsp");
+            response.sendRedirect("login.jsp");
         }
     }
 
