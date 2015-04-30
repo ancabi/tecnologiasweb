@@ -47,8 +47,10 @@ public class CreateServlet extends HttpServlet {
             String apellidos = request.getParameter("apellidosR");
             String usuario = request.getParameter("usuarioR");
             String pass = request.getParameter("passR");
-            Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
-            uf.create(u);
+            if (!nombre.isEmpty() && !apellidos.isEmpty() && !usuario.isEmpty() && !pass.isEmpty()) {
+                Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
+                uf.create(u);
+            }
             response.sendRedirect("login.jsp");
         }
     }

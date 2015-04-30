@@ -33,14 +33,16 @@ public class LoginServlet extends HttpServlet {
 
             String usuario = request.getParameter("usuarioL");
             String pass = request.getParameter("passL");
-
-            Usuario registrado = uf.usuarioRegistrado(usuario, pass);
-
-            if (registrado != null) {
-                response.sendRedirect("MuroServlet");
-                session.setAttribute("usuario", registrado);
-            } else {
+            if (usuario.isEmpty() || pass.isEmpty()) {
                 response.sendRedirect("Login.jsp");
+            } else {
+                Usuario registrado = uf.usuarioRegistrado(usuario, pass);
+                if (registrado != null) {
+                    response.sendRedirect("MuroServlet");
+                    session.setAttribute("usuario", registrado);
+                } else {
+                    response.sendRedirect("Login.jsp");
+                }
             }
         }
     }
