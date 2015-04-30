@@ -88,14 +88,14 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
     public boolean usuarioRegistrado(String usuario, String pass) {
         boolean res = false;
         Query q;
-        usuario = usuario.toUpperCase();
-        pass = pass.toUpperCase(); // ¿?
-        q = em.createQuery("SELECT u FROM Usuario u WHERE (UPPER(u.usuario) = :usuario) AND (UPPER(u.password) = :pass)");
+        q = em.createNamedQuery("Usuario.findByUsuario");
         q.setParameter("usuario", usuario);
-        q.setParameter("pass", pass);
         List lista = q.getResultList();
         if (!lista.isEmpty()) {
-            res = true;
+            Usuario u = (Usuario) lista.get(0);
+            if (pass.equalsIgnoreCase(u.getPassword())) {
+                res = true;
+            }
         }
         return res;
     }
