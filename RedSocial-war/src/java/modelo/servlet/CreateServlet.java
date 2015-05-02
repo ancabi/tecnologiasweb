@@ -42,7 +42,9 @@ public class CreateServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            BigDecimal id = new BigDecimal(7);
+            Usuario ultimo = uf.buscarUltimoUsuario();
+            BigDecimal id = ultimo.getId();
+            id.add(new BigDecimal(1));
             String nombre = request.getParameter("nombreR");
             String apellidos = request.getParameter("apellidosR");
             String usuario = request.getParameter("usuarioR");

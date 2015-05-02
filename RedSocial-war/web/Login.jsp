@@ -64,7 +64,6 @@
                         <input name="passL" type="password" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1" >
                     </div>
                     <button type="submit" value="Entrar" class="btn btn-default navbar-btn">Entrar</button>
-                    <button type="button" href="/RedSocial-war/Perfil"class="btn btn-default navbar-btn">¿Has olvidado tu contraseña?</button>
                     <p></p><p></p>
                 </form>
 
