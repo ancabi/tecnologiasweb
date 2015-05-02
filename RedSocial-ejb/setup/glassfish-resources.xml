@@ -5,8 +5,8 @@
         <property name="serverName" value="olimpia.lcc.uma.es"/>
         <property name="portNumber" value="1521"/>
         <property name="databaseName" value="taw"/>
-        <property name="User" value="taw40"/>
-        <property name="Password" value="taw40"/>
+        <property name="User" value="taw41"/>
+        <property name="Password" value="taw41"/>
         <property name="URL" value="jdbc:oracle:thin:@olimpia.lcc.uma.es:1521:taw"/>
         <property name="driverClass" value="oracle.jdbc.OracleDriver"/>
     </jdbc-connection-pool>
