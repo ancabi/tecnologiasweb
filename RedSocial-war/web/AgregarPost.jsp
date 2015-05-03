@@ -4,8 +4,16 @@
     Author     : TitoM4C
 --%>
 
+<%@page import="app.entity.Post"%>
+<%@page import="java.util.List"%>
+<%@page import="app.entity.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+    Usuario u = (Usuario) session.getAttribute("usuario");
+%>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -45,20 +53,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li ><a href="#">Usuario </a></li>
-                        <li class="active"><a href="#">Muro</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
+                        <li ><a href="#">
+                                <%=u.getNombre()%> 
+                                <%=u.getApellidos()%>
+                            </a></li>
+                        <li ><a href="#">Muro</a></li>
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
@@ -73,18 +72,33 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="#">Usuario</a></li></ul>
+                    <ul class='nav nav-sidebar'>
+                        <li ><a href="/RedSocial-war/Perfil">
+                                <%=u.getNombre()%> 
+                                <%=u.getApellidos()%>
+                            </a></li></ul>
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="#">Noticias <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="/RedSocial-war/Muro">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
-                        <li><a href="#">Agregar amigos<div class="cantidad">2</div></a></li>
+                        <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">
+                                    <%if (u.getUsuarioList2().size() != 0)%>
+                                    <%=u.getUsuarioList2().size()%>
+                                </div></a></li>
                     </ul>
                 </div>
 
                 <div class="container" role="main">
                     <section class='col-sm-10'>
-                        <h1>Hello, world!</h1>
+                        <h1>Publicar en mi muro</h1>
+                        <form method="get" action="AgregarPostServlet" name="agregarPost">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Nuevo Post</span>
+                                <input type="text" class="form-control" placeholder="Editar Post..." aria-describedby="basic-addon1">
+                            </div>
+                            <button type="submit" value="Publicar" class="btn btn-default navbar-btn">Publicar</button>
+                            <button type="button" value="Cancelar" class="btn btn-default navbar-btn">Cancelar</button>
+                        </form>
                     </section>
                 </div>
                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

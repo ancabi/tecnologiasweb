@@ -62,6 +62,13 @@ public class Post implements Serializable {
         this.id = id;
         this.texto = texto;
     }
+    
+    public Post (BigDecimal id, String texto, Usuario user, Grupo grup) {
+        this.id = id;
+        this.texto = texto;
+        this.idusuario = user;
+        this.idgrupo = grup;
+    }
 
     public BigDecimal getId() {
         return id;
