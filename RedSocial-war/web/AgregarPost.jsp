@@ -78,13 +78,14 @@
                                 <%=u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
-                        <li class="active"><a href="Muro.jsp">Noticias </a></li>
+                        <li><a href="Muro.jsp">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="CrearGrupoIntegrantes.jsp">Grupos</a></li>
                         <li><a href="agregaramigo.jsp">Agregar amigos<div class="cantidad">
                                     <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>
                                 </div></a></li>
+                                <li class="active"><a href="AgregarPost.jsp">Agregar post</a></li>
                     </ul>
                 </div>
 
@@ -94,7 +95,7 @@
                         <form method="get" action="AgregarPostServlet" name="agregarPost">
                             <div class="input-group">
                                 <span class="input-group-addon" id="basic-addon1">Nuevo Post</span>
-                                <input type="text" class="form-control" placeholder="Editar Post..." aria-describedby="basic-addon1">
+                                <input type="text" name="texto" class="form-control" placeholder="Editar Post..." aria-describedby="basic-addon1">
                             </div>
                             <button type="submit" value="Publicar" class="btn btn-default navbar-btn">Publicar</button>
                             <button type="button" value="Cancelar" class="btn btn-default navbar-btn">Cancelar</button>

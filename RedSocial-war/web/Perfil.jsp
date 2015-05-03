@@ -86,6 +86,7 @@
                                     <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>
                                 </div></a></li>
+                                <li><a href="AgregarPost.jsp">Agregar post</a></li>
                     </ul>
                 </div>
 

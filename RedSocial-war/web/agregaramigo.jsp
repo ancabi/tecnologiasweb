@@ -11,14 +11,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+
 <%
+
     Usuario u = (Usuario) session.getAttribute("usuario");
     List<Usuario> resBuscar = (List<Usuario>) request.getAttribute("resBuscar");
     List<Usuario> invitaciones = u.getUsuarioList2();
-    /*int enviado=0;
-    if(request.getAttribute("enviado")!=null){
+    int enviado = 0;
+    if (request.getAttribute("enviado") != null) {
         enviado = (Integer) request.getAttribute("enviado");
-    }*/
+    }
 %>
 
 <html lang="en">
@@ -57,8 +59,8 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="Perfil.jsp">
-                                <%=u.getNombre()%> 
-                                <%=u.getApellidos()%>
+                                <%= u.getNombre()%> 
+                                <%= u.getApellidos()%>
                             </a></li>
                         <li><a href="Muro.jsp">Muro</a></li>
                     </ul>
@@ -73,20 +75,32 @@
         </nav>
 
         <div class="container-fluid">
-            
+            <%
+                if (enviado == 0) {
+            %>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                La invitacion se ha enviado correctamente
+            </div>  
+            <%
+                }
+            %>
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class='nav nav-sidebar'><li><a href="Perfil.jsp">
-                                <%=u.getNombre()%>
-                                <%=u.getApellidos()%>
+                                <%= u.getNombre()%>
+                                <%= u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="Muro.jsp">Noticias</a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="CrearGrupoIntegrantes.jsp">Grupos</a></li>
                         <li class="active"><a href="agregaramigo.jsp">Agregar amigos <div class="cantidad">
-                                    <%if (u.getUsuarioList2().size() != 0)%>
-                                    <%=u.getUsuarioList2().size()%></div></a></li>
+                                    <% if (u.getUsuarioList2().size() != 0)%>
+                                    <%= u.getUsuarioList2().size()%>
+
+                                </div></a></li>
+                        <li><a href="AgregarPost.jsp">Agregar post</a></li>
                     </ul>
                 </div>
 
@@ -96,8 +110,8 @@
 
                         <table class="table table-hover">
                             <%
-                            if (invitaciones != null) {
-                                    for (Usuario temp : invitaciones) {
+                                if (invitaciones != null) {
+                                    for(Usuario temp:invitaciones){
                             %>
 
                             <tr>

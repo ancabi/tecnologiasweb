@@ -49,9 +49,9 @@ public class AgregarSolicitud extends HttpServlet {
         
         Usuario u2=uf.find(new BigDecimal(""+id));
         
-        uf.agregarInvitacion(u2,u);
+        uf.agregarInvitacion(u,u2);
         
-        //request.setAttribute("enviado", 1);
+        request.setAttribute("enviado", 1);
         
         RequestDispatcher rd;
         

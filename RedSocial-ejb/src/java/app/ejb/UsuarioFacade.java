@@ -110,7 +110,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         return res;
     }
 
-    public void agregarInvitacion(Usuario u2, Usuario u) {
+    public void agregarInvitacion(Usuario u, Usuario u2) {
 
         //Agrego la invitacion al usuario
         List<Usuario> invitaciones2 = u2.getUsuarioList2();
