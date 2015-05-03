@@ -38,8 +38,9 @@ public class LoginServlet extends HttpServlet {
             } else {
                 Usuario registrado = uf.usuarioRegistrado(usuario, pass);
                 if (registrado != null) {
-                    response.sendRedirect("MuroServlet");
                     session.setAttribute("usuario", registrado);
+                    session.setAttribute("invitaciones", registrado.getUsuarioList2());
+                    response.sendRedirect("MuroServlet");
                 } else {
                     response.sendRedirect("Login.jsp");
                 }

@@ -50,7 +50,6 @@ public class MuroServlet extends HttpServlet {
         List<Usuario> amigos = user.getUsuarioList();
         amigos.addAll(user.getUsuarioList1());
 
-        session.setAttribute("usuario", user);
         session.setAttribute("amigos", amigos);
 
         RequestDispatcher rd;

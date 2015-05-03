@@ -57,11 +57,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">
+                        <li><a href="Muro.jsp">
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li>
-                        <li><a href="#">Muro</a></li>
+                        <li><a href="Muro.jsp">Muro</a></li>
                     </ul>
                     <form class="navbar-form navbar-left pull-right" role="search">
                         <div class="form-group">
@@ -76,12 +76,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="/RedSocial-war/Muro">
+                    <ul class='nav nav-sidebar'><li><a href="Muro.jsp">
                                 <%=u.getNombre()%>
                                 <%=u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="/RedSocial-war/Muro">Noticias</a></li>
+                        <li><a href="Muro.jsp">Noticias</a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
                         <li class="active"><a href="#">Agregar amigos <div class="cantidad">

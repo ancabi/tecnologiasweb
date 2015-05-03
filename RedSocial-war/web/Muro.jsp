@@ -82,7 +82,7 @@
                         <li class="active"><a href="/RedSocial-war/Muro">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
                         <li><a href="#">Grupos</a></li>
-                        <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">
+                        <li><a href="/RedSocial-war/agregaramigo.jsp">Agregar amigos<div class="cantidad">
                                     <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>
                                 </div></a></li>

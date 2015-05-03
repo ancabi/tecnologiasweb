@@ -45,7 +45,7 @@ public class agregaramigoaux extends HttpServlet {
         
         List <Usuario> ul=uf.findAll();
 
-        Usuario u=ul.get(3);
+        Usuario u=ul.get(1);
         
         session.setAttribute("usuario", u);
         

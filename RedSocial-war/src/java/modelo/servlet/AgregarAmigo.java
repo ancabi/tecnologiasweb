@@ -48,6 +48,8 @@ public class AgregarAmigo extends HttpServlet {
         
         Usuario u=(Usuario)session.getAttribute("usuario");
         
+        if(u!=null){
+        
         int idUsuario=Integer.parseInt(request.getParameter("id"));
         
         int ok=Integer.parseInt(request.getParameter("ok"));
@@ -71,6 +73,15 @@ public class AgregarAmigo extends HttpServlet {
         
         rd=this.getServletContext().getRequestDispatcher("/agregaramigo.jsp");
         rd.forward(request, response);
+        
+        }else{
+            
+            RequestDispatcher rd;
+        
+            rd=this.getServletContext().getRequestDispatcher("/Login.jsp");
+            rd.forward(request, response);
+            
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
