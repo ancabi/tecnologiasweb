@@ -51,6 +51,8 @@ public class AgregarSolicitud extends HttpServlet {
         
         uf.agregarInvitacion(u2,u);
         
+        //request.setAttribute("enviado", 1);
+        
         RequestDispatcher rd;
         
         rd=getServletContext().getRequestDispatcher("/agregaramigo.jsp");

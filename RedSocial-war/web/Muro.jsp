@@ -81,7 +81,7 @@
                     <ul class="nav nav-sidebar">
                         <li class="active"><a href="Muro.jsp">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
-                        <li><a href="crearGrupoIntegrantes.jsp">Grupos</a></li>
+                        <li><a href="CrearGrupoIntegrantes.jsp">Grupos</a></li>
                         <li><a href="agregaramigo.jsp">Agregar amigos<div class="cantidad">
                                     <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>

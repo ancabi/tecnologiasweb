@@ -31,6 +31,7 @@ public class CrearGrupoNombre extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
+    @EJB
     private GrupoFacade ufg;
 
     /**
@@ -48,22 +49,24 @@ public class CrearGrupoNombre extends HttpServlet {
 
         Usuario u = (Usuario) session.getAttribute("usuario");
 
-        String nombre = (String) request.getAttribute("nombreG");
+        String nombre = (String) request.getParameter("nombreG");
         Grupo ultGrup = ufg.seleccionarGrupo();
         BigDecimal id = ultGrup.getId();
         id = id.add(new BigDecimal(1));
+
+        //Debo utilizar otro objeto usuario, porque si utilizo el de session, salta un error de restriccion unica voilada
+        Usuario u1 = uf.find(u.getId());
 
         if (nombre != null) {
             Grupo g = new Grupo(id, nombre);
             ufg.create(g);
             request.setAttribute("grupo", g);
-            ufg.setUsuario(u, g);
-            response.sendRedirect("crearGrupo.jsp");
+            uf.setUsuario(u1, g);
         }
 
         RequestDispatcher rd;
 
-        rd = this.getServletContext().getRequestDispatcher("/CrearGrupoIntegrantes.jsp");
+        rd = this.getServletContext().getRequestDispatcher("/crearGrupo.jsp");
         rd.forward(request, response);
 
     }

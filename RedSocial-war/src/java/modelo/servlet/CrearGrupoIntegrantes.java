@@ -31,6 +31,7 @@ public class CrearGrupoIntegrantes extends HttpServlet {
 
     @EJB
     private UsuarioFacade uf;
+    @EJB
     private GrupoFacade  ufg;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,17 +44,14 @@ public class CrearGrupoIntegrantes extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         HttpSession session = request.getSession();
-        
-            Usuario u=(Usuario) session.getAttribute("usuario");
         
             int id=Integer.parseInt(request.getParameter("id"));
         
-            Usuario u1 = uf.find(id);
+            Usuario u1 = uf.find(new BigDecimal(""+id));
             
             Grupo g= ufg.seleccionarGrupo();
             
-            ufg.setUsuario(u, g);
+            uf.setUsuario(u1, g);
          
             RequestDispatcher rd;
         

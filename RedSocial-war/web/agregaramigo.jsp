@@ -15,6 +15,10 @@
     Usuario u = (Usuario) session.getAttribute("usuario");
     List<Usuario> resBuscar = (List<Usuario>) request.getAttribute("resBuscar");
     List<Usuario> invitaciones = u.getUsuarioList2();
+    /*int enviado=0;
+    if(request.getAttribute("enviado")!=null){
+        enviado = (Integer) request.getAttribute("enviado");
+    }*/
 %>
 
 <html lang="en">
@@ -69,6 +73,7 @@
         </nav>
 
         <div class="container-fluid">
+            
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class='nav nav-sidebar'><li><a href="Perfil.jsp">
@@ -78,7 +83,7 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="Muro.jsp">Noticias</a></li>
                         <li><a href="#">Mensajes</a></li>
-                        <li><a href="crearGrupoIntegrantes.jsp">Grupos</a></li>
+                        <li><a href="CrearGrupoIntegrantes.jsp">Grupos</a></li>
                         <li class="active"><a href="agregaramigo.jsp">Agregar amigos <div class="cantidad">
                                     <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%></div></a></li>

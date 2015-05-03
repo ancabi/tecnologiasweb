@@ -5,6 +5,7 @@
  */
 package app.ejb;
 
+import app.entity.Grupo;
 import app.entity.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -120,10 +121,20 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
         List<Usuario> invitaciones = u.getUsuarioList3();
         invitaciones.add(u2);
         u.setUsuarioList3(invitaciones);
-
-        //em.merge(u);
+        
         em.merge(u2);
+        //em.merge(u);
 
+    }
+    
+    public void setUsuario(Usuario u, Grupo g) {
+
+        List<Grupo> grupos=u.getGrupoList();
+        grupos.add(g);
+        u.setGrupoList(grupos);
+        
+        em.merge(u);
+      
     }
 
 }

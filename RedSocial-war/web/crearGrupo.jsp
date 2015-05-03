@@ -41,11 +41,13 @@
         <nav class="navbar navbar-default">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
 
-                <img alt="Brand" src="img/fl.png">
-                </a>
-                <a class="navbar-brand" href="#">Friendslife</a>
-            </div>
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="img/fl.png">
+                    </a>
+                    <a class="navbar-brand" href="#">Friendslife</a>
+                </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -77,7 +79,7 @@
                 <ul class="nav nav-sidebar">
                     <li><a href="Muro.jsp">Noticias </a></li>
                     <li><a href="#">Mensajes</a></li>
-                    <li class="active"><a href="crearGrupoIntegrantes.jsp">Grupos</a></li>
+                    <li class="active"><a href="CrearGrupoIntegrantes.jsp">Grupos</a></li>
                     <li><a href="agregaramigo.jsp">Agregar amigos<div class="cantidad">
                                 <%if (u.getUsuarioList2().size() != 0)%>
                                 <%=u.getUsuarioList2().size()%>
@@ -128,14 +130,7 @@
 
                     </table>
 
-
-
-
-
-
                     </form>
-
-
 
                     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -11,11 +11,11 @@
 <!DOCTYPE html>
 
 
-    <%
-        Usuario u = (Usuario) session.getAttribute("usuario");
-       
-        
-    %>
+<%
+    Usuario u = (Usuario) session.getAttribute("usuario");
+
+
+%>
 
 <html lang="en">
     <head>
@@ -83,7 +83,7 @@
                     <ul class="nav nav-sidebar">
                         <li><a href="Muro.jsp">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
-                        <li class="active"><a href="crearGrupoIntegrantes.jsp">Grupos</a></li>
+                        <li class="active"><a href="CrearGrupoIntegrantes.jsp">Grupos</a></li>
                         <li><a href="agregaramigo.jsp">Agregar amigos<div class="cantidad">
                                     <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>
@@ -98,27 +98,27 @@
                             Crear Grupo
                         </h1>
                         <form method="get" action="CrearGrupoNombre" name="crear" class="col-sm-10">
-                    <div class="input-group ">
-                        <span class="input-group-addon" id="basic-addon1">Nombre del Grupo:</span>
-                        <input name="nombreG" type="text" class="form-control" placeholder="e.g., Illuminatis" aria-describedby="basic-addon1">
-     
-                    </div>
-                    
-                   
-                  
-                     <button type="submit" value="Crear" class="btn btn-default navbar-btn">Crear</button>
-                       
-                      
-                       
-                
-                    
-                        </form>
-                        
-                          
+                            <div class="input-group ">
+                                <span class="input-group-addon" id="basic-addon1">Nombre del Grupo:</span>
+                                <input name="nombreG" type="text" class="form-control" placeholder="e.g., Illuminatis" aria-describedby="basic-addon1">
 
-                <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-                <!-- Include all compiled plugins (below), or include individual files as needed -->
-                <script src="js/bootstrap.min.js"></script>
-                </body>
-                </html>
+                            </div>
+
+
+
+                            <button type="submit" value="Crear" class="btn btn-default navbar-btn">Crear</button>
+
+
+
+
+
+                        </form>
+
+
+
+                        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+                        <!-- Include all compiled plugins (below), or include individual files as needed -->
+                        <script src="js/bootstrap.min.js"></script>
+                        </body>
+                        </html>

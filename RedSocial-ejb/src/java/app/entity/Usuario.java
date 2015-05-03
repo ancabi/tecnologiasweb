@@ -76,7 +76,7 @@ public class Usuario implements Serializable {
     @JoinTable(name = "USUARIOGRUPO", joinColumns = {
         @JoinColumn(name = "IDUSUARIO", referencedColumnName = "ID")}, inverseJoinColumns = {
         @JoinColumn(name = "IDGRUPO", referencedColumnName = "ID")})
-    @ManyToMany
+    @ManyToMany( fetch=FetchType.EAGER )
     private List<Grupo> grupoList;
     
     @JoinTable(name = "AMIGOS", joinColumns = {

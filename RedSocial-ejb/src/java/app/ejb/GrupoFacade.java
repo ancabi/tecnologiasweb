@@ -35,24 +35,11 @@ public class GrupoFacade extends AbstractFacade<Grupo> {
         
         em.persist(g);
     }
-    
-    
-    public void setUsuario(Usuario u, Grupo g) {
-
-
-        List<Usuario> grupo = g.getUsuarioList();
-        grupo.add(u);
-        g.setUsuarioList(grupo);
-        
-        em.merge(g);
-
-      
-    }
       
        public Grupo seleccionarGrupo() {
 
         Query q;
-        q = em.createQuery("Grupo.findAll");
+        q = em.createNamedQuery("Grupo.findAll");
         List<Grupo> grupos = q.getResultList();
         Grupo grupo = grupos.get(grupos.size()-1);
         

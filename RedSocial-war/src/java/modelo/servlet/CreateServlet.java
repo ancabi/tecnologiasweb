@@ -10,6 +10,7 @@ import app.entity.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,16 +42,17 @@ public class CreateServlet extends HttpServlet {
             throws ServletException, IOException {
         Usuario ultimo = uf.buscarUltimoUsuario();
         BigDecimal id = ultimo.getId();
-        id.add(new BigDecimal(1));
+        id=id.add(new BigDecimal(1));
         String nombre = request.getParameter("nombreR");
         String apellidos = request.getParameter("apellidosR");
         String usuario = request.getParameter("usuarioR");
         String pass = request.getParameter("passR");
         if (!nombre.isEmpty() && !apellidos.isEmpty() && !usuario.isEmpty() && !pass.isEmpty()) {
             Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
+            u.setAdmin(BigInteger.ZERO);
             uf.create(u);
         }
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("Login.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
