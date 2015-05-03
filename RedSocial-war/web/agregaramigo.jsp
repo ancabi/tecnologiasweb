@@ -11,11 +11,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-    <%
-        Usuario u = (Usuario) session.getAttribute("usuario");
-        List<Usuario> resBuscar= (List<Usuario>) request.getAttribute("resBuscar");
-        List<Usuario> invitaciones=(List<Usuario>) session.getAttribute("invitaciones");
-    %>
+<%
+    Usuario u = (Usuario) session.getAttribute("usuario");
+    List<Usuario> resBuscar = (List<Usuario>) request.getAttribute("resBuscar");
+    List<Usuario> invitaciones = u.getUsuarioList2();
+%>
 
 <html lang="en">
     <head>
@@ -36,18 +36,13 @@
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-    
+
     <body>
         <nav class="navbar navbar-default">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+
                     <a class="navbar-brand" href="#">
                         <img alt="Brand" src="img/fl.png">
                     </a>
@@ -57,7 +52,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="Muro.jsp">
+                        <li><a href="Perfil.jsp">
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li>
@@ -76,16 +71,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
-                    <ul class='nav nav-sidebar'><li><a href="Muro.jsp">
+                    <ul class='nav nav-sidebar'><li><a href="Perfil.jsp">
                                 <%=u.getNombre()%>
                                 <%=u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
                         <li><a href="Muro.jsp">Noticias</a></li>
                         <li><a href="#">Mensajes</a></li>
-                        <li><a href="#">Grupos</a></li>
-                        <li class="active"><a href="#">Agregar amigos <div class="cantidad">
-                                    <%if(u.getUsuarioList2().size()!=0)%>
+                        <li><a href="crearGrupoIntegrantes.jsp">Grupos</a></li>
+                        <li class="active"><a href="agregaramigo.jsp">Agregar amigos <div class="cantidad">
+                                    <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%></div></a></li>
                     </ul>
                 </div>
@@ -96,26 +91,26 @@
 
                         <table class="table table-hover">
                             <%
-                            if(invitaciones!=null){
-                                for(Usuario temp:invitaciones){
+                            if (invitaciones != null) {
+                                    for (Usuario temp : invitaciones) {
                             %>
-                            
+
                             <tr>
                                 <td><%=temp.getNombre()%></td>
                                 <td><%=temp.getApellidos()%></td>
                                 <td style="width: 100px;"><a href="AgregarAmigo?id=<%=temp.getId()%>&ok=1"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aceptar</button></a></td>
                                 <td><a href="AgregarAmigo?id=<%=temp.getId()%>&ok=0"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Rechazar</button></a></td>                       
                             </tr>
-                            
+
                             <%
+                                    }
                                 }
-                            }
                             %>
-                            
-                            
+
+
                         </table>
                     </section>
-                    
+
                     <section class='col-sm-8'>
                         <h2>Buscar amigo</h2>
 
@@ -126,7 +121,7 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="buscar" placeholder="Nombre/Apellido">
                                         <span class="input-group-btn">
-                                    <input class="btn btn-primary" type="submit" value="Buscar">
+                                            <input class="btn btn-primary" type="submit" value="Buscar">
                                         </span>
                                     </div>
                                 </form>
@@ -134,11 +129,11 @@
                         </div><!-- /.row -->
                         <br/><br/>
                         <table class="table table-hover">
-                            
+
                             <%
-                                if(resBuscar!=null){ 
-                                    
-                                    for(Usuario b:resBuscar){
+                                if (resBuscar != null) {
+
+                                    for (Usuario b : resBuscar) {
                             %>
 
                             <tr>
@@ -150,7 +145,7 @@
                                     }
                                 }
                             %>
-                            
+
                         </table>
                     </section>
                 </div>

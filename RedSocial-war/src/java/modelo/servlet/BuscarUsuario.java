@@ -40,18 +40,15 @@ public class BuscarUsuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //get session of the request
         HttpSession session = request.getSession();
 
         Usuario u = (Usuario) session.getAttribute("usuario");
 
-        
-        String buscar = request.getParameter("buscar"); 
+        String buscar = request.getParameter("buscar");
 
         List<Usuario> usuarios1 = uf.buscarUsuario(buscar, u.getId().intValue());
-   
+
         request.setAttribute("resultado", usuarios1);
-        
 
         RequestDispatcher rd;
 

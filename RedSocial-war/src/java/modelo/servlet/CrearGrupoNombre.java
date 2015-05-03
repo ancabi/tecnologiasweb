@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package modelo.servlet;
 
 import app.ejb.GrupoFacade;
@@ -23,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
  *
  * @author JoséMaría
@@ -31,7 +29,6 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "CrearGrupoNombre", urlPatterns = {"/CrearGrupoNombre"})
 public class CrearGrupoNombre extends HttpServlet {
 
-    
     @EJB
     private UsuarioFacade uf;
     private GrupoFacade ufg;
@@ -47,41 +44,29 @@ public class CrearGrupoNombre extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // response.setContentType("text/html;charset=UTF-8");
-       // try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-              //get session of the request
         HttpSession session = request.getSession();
-        
-        List <Usuario> ul=uf.findAll();
 
-        Usuario u=ul.get(3);
-        
-        session.setAttribute("usuario", u);
+        Usuario u = (Usuario) session.getAttribute("usuario");
 
         String nombre = (String) request.getAttribute("nombreG");
         Grupo ultGrup = ufg.seleccionarGrupo();
         BigDecimal id = ultGrup.getId();
-        id = id.add(new BigDecimal (1));
+        id = id.add(new BigDecimal(1));
 
-        
-         if (nombre != null){
-               Grupo g = new Grupo( id, nombre);
-               ufg.create(g);
-               request.setAttribute("grupo", g);
-               ufg.setUsuario(u, g);
-            }
-
-        
+        if (nombre != null) {
+            Grupo g = new Grupo(id, nombre);
+            ufg.create(g);
+            request.setAttribute("grupo", g);
+            ufg.setUsuario(u, g);
+            response.sendRedirect("crearGrupo.jsp");
+        }
 
         RequestDispatcher rd;
 
         rd = this.getServletContext().getRequestDispatcher("/CrearGrupoIntegrantes.jsp");
         rd.forward(request, response);
-        
-        }
-    
-    
+
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

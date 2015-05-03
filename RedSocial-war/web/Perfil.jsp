@@ -54,11 +54,11 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li ><a href="#">
+                        <li ><a href="Perfil.jsp">
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li>
-                        <li ><a href="#">Muro</a></li>
+                        <li ><a href="Muro.jsp">Muro</a></li>
                     </ul>
                     <form class="navbar-form navbar-left pull-right" role="search" >
                         <div class="form-group">
@@ -74,16 +74,16 @@
             <div class="row">
                 <div class="col-sm-3 col-md-2 sidebar">
                     <ul class='nav nav-sidebar'>
-                        <li class="active"><a href="/RedSocial-war/Perfil">
+                        <li class="active"><a href="Perfil.jsp">
                                 <%=u.getNombre()%> 
                                 <%=u.getApellidos()%>
                             </a></li></ul>
                     <ul class="nav nav-sidebar">
-                        <li><a href="/RedSocial-war/Muro">Noticias </a></li>
+                        <li><a href="Muro.jsp">Noticias </a></li>
                         <li><a href="#">Mensajes</a></li>
-                        <li><a href="#">Grupos</a></li>
-                        <li><a href="/RedSocial-war/agregaramigoaux">Agregar amigos<div class="cantidad">
-                                <%if(u.getUsuarioList2().size()!=0)%>
+                        <li><a href="crearGrupoIntegrantes.jsp">Grupos</a></li>
+                        <li><a href="agregaramigo.jsp">Agregar amigos<div class="cantidad">
+                                    <%if (u.getUsuarioList2().size() != 0)%>
                                     <%=u.getUsuarioList2().size()%>
                                 </div></a></li>
                     </ul>
@@ -106,19 +106,19 @@
                             </div>
                             <div class="panel-body " >
                                 <div class="btn-group btn-group-sm " role="group" aria-label="...">
-                                    
+
                                     <button type="button" class="btn btn-default">
                                         <span class=" glyphicon glyphicon-pencil"/>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                            <%
-                                }
-                            %>
+                        <%
+                            }
+                        %>
                     </section>     
                 </div>
-                
+
                 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
                 <!-- Include all compiled plugins (below), or include individual files as needed -->

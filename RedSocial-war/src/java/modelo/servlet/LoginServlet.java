@@ -27,23 +27,21 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            HttpSession session = request.getSession();
+        HttpSession session = request.getSession();
 
-            String usuario = request.getParameter("usuarioL");
-            String pass = request.getParameter("passL");
-            if (usuario.isEmpty() || pass.isEmpty()) {
-                response.sendRedirect("Login.jsp");
+        String usuario = request.getParameter("usuarioL");
+        String pass = request.getParameter("passL");
+        if (usuario.isEmpty() || pass.isEmpty()) {
+            response.sendRedirect("Login.jsp");
+        } else {
+            Usuario registrado = uf.usuarioRegistrado(usuario, pass);
+            if (registrado != null) {
+
+                session.setAttribute("usuario", registrado);
+                response.sendRedirect("MuroServlet");
+
             } else {
-                Usuario registrado = uf.usuarioRegistrado(usuario, pass);
-                if (registrado != null) {
-                    session.setAttribute("usuario", registrado);
-                    session.setAttribute("invitaciones", registrado.getUsuarioList2());
-                    response.sendRedirect("MuroServlet");
-                } else {
-                    response.sendRedirect("Login.jsp");
-                }
+                response.sendRedirect("Login.jsp");
             }
         }
     }

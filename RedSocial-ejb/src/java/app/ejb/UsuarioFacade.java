@@ -86,7 +86,7 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
     }
 
     public Usuario buscarUltimoUsuario() {
-        Usuario res = null;
+        Usuario res;
         Query q;
         q = em.createNamedQuery("Usuario.findAll");
         List lista = q.getResultList();

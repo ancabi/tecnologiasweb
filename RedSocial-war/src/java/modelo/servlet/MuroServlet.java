@@ -42,7 +42,6 @@ public class MuroServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        /* TODO output your page here. You may use following sample code. */
         HttpSession session = request.getSession();
 
         Usuario user = (Usuario) session.getAttribute("usuario");

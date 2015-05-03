@@ -39,22 +39,18 @@ public class CreateServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            Usuario ultimo = uf.buscarUltimoUsuario();
-            BigDecimal id = ultimo.getId();
-            id.add(new BigDecimal(1));
-            String nombre = request.getParameter("nombreR");
-            String apellidos = request.getParameter("apellidosR");
-            String usuario = request.getParameter("usuarioR");
-            String pass = request.getParameter("passR");
-            if (!nombre.isEmpty() && !apellidos.isEmpty() && !usuario.isEmpty() && !pass.isEmpty()) {
-                Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
-                uf.create(u);
-            }
-            response.sendRedirect("login.jsp");
+        Usuario ultimo = uf.buscarUltimoUsuario();
+        BigDecimal id = ultimo.getId();
+        id.add(new BigDecimal(1));
+        String nombre = request.getParameter("nombreR");
+        String apellidos = request.getParameter("apellidosR");
+        String usuario = request.getParameter("usuarioR");
+        String pass = request.getParameter("passR");
+        if (!nombre.isEmpty() && !apellidos.isEmpty() && !usuario.isEmpty() && !pass.isEmpty()) {
+            Usuario u = new Usuario(id, nombre, apellidos, usuario, pass);
+            uf.create(u);
         }
+        response.sendRedirect("login.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
